@@ -20,7 +20,7 @@ public class TestLuaTableParser {
 		File outDir = new File("c:/Temp/Eso");
 		if (inDir.exists() && inDir.isDirectory() && outDir.exists() && outDir.isDirectory()) {
 			for (File file : inDir.listFiles()) {
-				if (file.isFile()) {
+				if (file.isFile() && !file.getName().startsWith(".")) {
 					log.debug("File: {}", file.getName());
 					LuaTableParser ltp = new LuaTableParser();
 					ltp.setEncoding("UTF-8");
