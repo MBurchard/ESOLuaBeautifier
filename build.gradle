@@ -1,4 +1,5 @@
 apply plugin: 'java-library'
+apply plugin: 'eclipse'
 
 repositories {
     mavenCentral()
@@ -15,4 +16,14 @@ dependencies {
     // Use JUnit test framework
     testImplementation "junit:junit:4.12",
     		"ch.qos.logback:logback-classic:1.2.3"
+}
+
+task cleanCustom(type: Delete) {
+	delete '.settings'
+	delete 'bin'
+	delete 'build'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.0.2'
 }
